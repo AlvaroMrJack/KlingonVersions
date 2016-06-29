@@ -36,34 +36,42 @@ public class ServletLogin extends HttpServlet {
         String pass = request.getParameter("pass");
         Empleado u = lbl.ObtEmpleado(Integer.parseInt(rut), pass);
         
-        if (u != null) {
-            HttpSession sesion;
-            sesion=request.getSession(true);
-            int grupo =u.getGrupo().getGru_id();
-            switch(grupo){
-            case 1:
-                MetasMysql.GenerarGrafico(Empleado.fechaactual(),u.getGrupo(),u);
-                Metas m = ebl.GetAllMetas(u.getGrupo(), Empleado.fechaactual());
-                sesion.setAttribute("rutlogin",u);
-                sesion.setAttribute("metas", m);
-                sesion.setMaxInactiveInterval(5000);
-                response.sendRedirect("inicio.jsp");
-                break;
-            case 2:
-                sesion.setAttribute("rutlogin",u);
-                sesion.setMaxInactiveInterval(5000);
-                response.sendRedirect("estadisticas.jsp");
-                break;
-            default:
-                response.sendRedirect("index.jsp");
-                break;
-           }   
-        }
-        else
-        {
-          PrintWriter out = response.getWriter();
+        if(rut.length()<4){
+            if (u != null) {
+                HttpSession sesion;
+                sesion=request.getSession(true);
+                int grupo =u.getGrupo().getGru_id();
+                switch(grupo){
+                case 1:
+                    MetasMysql.GenerarGrafico(Empleado.fechaactual(),u.getGrupo(),u);
+                    Metas m = ebl.GetAllMetas(u.getGrupo(), Empleado.fechaactual());
+                    sesion.setAttribute("rutlogin",u);
+                    sesion.setAttribute("metas", m);
+                    sesion.setMaxInactiveInterval(5000);
+                    response.sendRedirect("inicio.jsp");
+                    break;
+                case 2:
+                    sesion.setAttribute("rutlogin",u);
+                    sesion.setMaxInactiveInterval(5000);
+                    response.sendRedirect("estadisticas.jsp");
+                    break;
+                default:
+                    response.sendRedirect("index.jsp");
+                    break;
+               }   
+            }
+            else
+            {
+              PrintWriter out = response.getWriter();
+              out.println("<script type=\"text/javascript\">");
+              out.println("alert('Usuario o Clave Incorrecto, Favor intentar nuevamente');");
+              out.println("location='index.jsp';");
+              out.println("</script>");
+            }
+        }else{
+            PrintWriter out = response.getWriter();
           out.println("<script type=\"text/javascript\">");
-          out.println("alert('Usuario o Clave Incorrecto, Favor intentar nuevamente');");
+          out.println("alert('Clave Demasiada Corta, Favor intentar nuevamente');");
           out.println("location='index.jsp';");
           out.println("</script>");
         }
