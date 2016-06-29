@@ -31,7 +31,7 @@
 					<br />
 					<FONT>Correo   </FONT><input class="inputC" type="text" name="correo" id="correo"/>
 					<br />
-					<input type="button" class="gc" value="Guardar Cambios"></input>
+					<input type="button" class="gc" value="Guardar Cambios">
 				</form>
 				
 				<select class="lista" id="vendedor">

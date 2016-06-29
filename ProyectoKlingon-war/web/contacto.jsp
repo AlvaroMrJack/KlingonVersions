@@ -62,7 +62,7 @@
                         <form method="post" action="contacto.do">
 			<input type="text" class="asunto" name="asunto"><br/><br/>
 			<FONT><strong>Mensaje</strong></FONT><br/><br/>
-			<textarea type="text" class="mensaje" name="mensaje"></textarea><br/><br/>
+			<textarea class="mensaje" name="mensaje"></textarea><br/><br/>
 			<input type="submit" class="enviar" value="Enviar">
                         </form>
 		</div>

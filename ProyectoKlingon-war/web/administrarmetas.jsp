@@ -40,5 +40,5 @@
 				<h1>Buscador de metas pasadas</h1>
 			
 		</div>
-	</body>
+                </body>
 </html>
