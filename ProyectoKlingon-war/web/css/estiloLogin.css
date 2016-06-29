@@ -1,0 +1,96 @@
+body{
+	background-image: url('../Imagenes/fondo.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+        background-size: 100%;
+}
+
+.uno{
+	width:440px;
+	height:580px;
+	background: rgba(255, 255, 255, 0.3);
+	margin-left:80px;
+	margin-top:50px;
+	float:left;
+}
+.uno img{
+	width:438;
+	height:326;
+	margin-top:70px;
+}
+.dos{
+	width:640px;
+	height:580px;
+	background:white;
+	margin-top:50px;
+	float:left;
+}
+.dos p{
+	font-family:Trebuchet MS;
+	margin-left:60px;
+	margin-top:80px;
+	font-size:30px;
+}
+.input1{
+	width:300px;
+	height:40px;
+	font-size:25px;
+	margin-left:60px;
+}
+.input2{
+	width:300px;
+	height:40px;
+	font-size:25px;
+	margin-left:60px;
+}
+.dos font{
+	font-family:Microsoft Yi Baiti;
+	font-size:35px;
+	margin-left:60px;
+}
+
+.btn {
+	margin-top:10px;
+	margin-left:58px;
+	width:140px;
+	font-family: Georgia;
+	color: #ffffff;
+	font-size: 16px;
+	background: #000000;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
+        
+        transition: all 500ms ease;
+        transform-style: preserve-3d;
+}
+
+.btn:hover {
+	background: #FADB06;
+	text-decoration: none;
+	color: #000000;
+        border:solid 2px black;
+}
+
+.texto{
+	width:475px;
+	height:130px;
+	font-size:20px;
+	margin-left:60px;
+	margin-top:10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
