@@ -28,6 +28,9 @@ public class ServletLogin extends HttpServlet {
     LoginBeanLocal lbl;
     @EJB
     EmpleadoBeanLocal ebl;
+    @EJB
+    CantidadMetas cm;
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try{
@@ -38,8 +41,14 @@ public class ServletLogin extends HttpServlet {
         
         if(rut.length()<4){
             if (u != null) {
+                
+                int vent = cm.obtVentas(Empleado.fechaactual(), u);
+                int cliV = cm.obtCliVisitados(Empleado.fechaactual(), u);
+                int cliN = cm.obtCliNuevos(Empleado.fechaactual(), u);
+                
                 HttpSession sesion;
                 sesion=request.getSession(true);
+                
                 int grupo =u.getGrupo().getGru_id();
                 switch(grupo){
                 case 1:
@@ -47,6 +56,11 @@ public class ServletLogin extends HttpServlet {
                     Metas m = ebl.GetAllMetas(u.getGrupo(), Empleado.fechaactual());
                     sesion.setAttribute("rutlogin",u);
                     sesion.setAttribute("metas", m);
+                    
+                    sesion.setAttribute("vent", vent);
+                    sesion.setAttribute("cliVisit", cliV);
+                    sesion.setAttribute("cliNuevo", cliN);
+                    
                     sesion.setMaxInactiveInterval(5000);
                     response.sendRedirect("inicio.jsp");
                     break;

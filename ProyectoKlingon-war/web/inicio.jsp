@@ -46,7 +46,9 @@
             HttpSession sesion=request.getSession(); 
             Empleado u = (Empleado)sesion.getAttribute("rutlogin");
             Metas m = (Metas) sesion.getAttribute("metas");
-            
+            int vent = (int)sesion.getAttribute("vent");
+            int visit = (int)sesion.getAttribute("cliVisit");
+            int nuev = (int)sesion.getAttribute("cliNuevo");
             %>
            
 		<header class="menuVertical">
@@ -76,9 +78,9 @@
 			<div class="metas">
 				<div class="tit"><p>Meta semanal</p></div>
 				<div class="mov">
-                                    <FONT>Vender a: <%=m.getMeta_cant_ventas() %> </FONT> <br/><br/>
-				<FONT>Visitar a: <%=m.getMeta_cant_visitas() %> </FONT><br/><br/>
-				<FONT>Agregar clientes: <%=m.getMeta_cant_clientes() %> </FONT>
+                                    <FONT>Vender a: <%=m.getMeta_cant_ventas() %> y llevo: <%=vent%> </FONT> <br/><br/>
+				<FONT>Visitar a: <%=m.getMeta_cant_visitas() %> y llevo: <%=visit%> </FONT><br/><br/>
+				<FONT>Agregar clientes: <%=m.getMeta_cant_clientes() %>  y llevo: <%=nuev%></FONT>
 				</div>
 			</div>
 			
